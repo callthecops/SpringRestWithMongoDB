@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
-@Document
+@Document(collection = "users")
 public class User {
 
     @Id
@@ -16,8 +16,12 @@ public class User {
     @Field("username")
     private String name;
 
-    private List<Details> userDetails;
+    private Details userDetails;
 
+    public User(String name, Details userDetails) {
+        this.name = name;
+        this.userDetails = userDetails;
+    }
 
     public String getId() {
         return id;
@@ -35,11 +39,11 @@ public class User {
         this.name = name;
     }
 
-    public List<Details> getUserDetails() {
+    public Details getUserDetails() {
         return userDetails;
     }
 
-    public void setUserDetails(List<Details> userDetails) {
+    public void setUserDetails(Details userDetails) {
         this.userDetails = userDetails;
     }
 }

@@ -1,9 +1,9 @@
 package com.example.PhoneBook.repository;
 
-import com.example.PhoneBook.model.User;
+import com.example.PhoneBook.model.Details;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends MongoRepository<User,String> {
+public interface DetailsRepository extends MongoRepository<Details, String> {
 }

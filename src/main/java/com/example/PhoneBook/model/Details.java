@@ -1,9 +1,11 @@
 package com.example.PhoneBook.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "details")
 public class Details {
 
     @Id
@@ -14,6 +16,16 @@ public class Details {
     private String mobile;
 
     private String email;
+
+    @Indexed(direction = IndexDirection.ASCENDING)
+    private int age;
+
+    public Details(String phone, String mobile, String email, int age) {
+        this.phone = phone;
+        this.mobile = mobile;
+        this.email = email;
+        this.age = age;
+    }
 
     public String getId() {
         return id;
