@@ -45,5 +45,17 @@ public class UserController {
         userRepository.deleteById(id);
     }
 
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable("id") String id) {
+        User user = userRepository.findUserById(id);
 
+        return user;
+    }
+
+    @GetMapping("/details/{age}")
+    public List<User> getByAge(@PathVariable("age") int age) {
+        List<User> users = userRepository.findByAge(age);
+
+        return users;
+    }
 }
