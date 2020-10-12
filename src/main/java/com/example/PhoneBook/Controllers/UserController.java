@@ -25,7 +25,7 @@ public class UserController {
     }
 
     //This is used for insert
-    @PutMapping("/insertuser")
+    @PutMapping
     public void insertUser(@RequestBody User user) {
         userRepository.insert(user);
     }
@@ -34,13 +34,13 @@ public class UserController {
     //and it insert rows that don't exist and updates rows that do exists.If the user that we pass in does not
     //have an id the upser will insert that object into mongodb collection.If the user has an existing ID
     //mongodb will update the respective user.
-    @PostMapping("/updateuser")
+    @PostMapping
     public void updateUser(@RequestBody User user) {
         userRepository.save(user);
     }
 
     //Delete is used for removal
-    @DeleteMapping("/deleteuser")
+    @DeleteMapping("/deleteuser/{id}")
     public void deleteUser(@PathVariable("id") String id) {
         userRepository.deleteById(id);
     }
